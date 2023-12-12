@@ -4,7 +4,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,9 +29,8 @@ import com.example.simplemvvmexamplewithjetpackcompose.R
 import com.example.simplemvvmexamplewithjetpackcompose.ui.theme.Purple40
 
 @Composable
-fun WelcomeScreen(
-    OnSignInClick: () -> Unit,
-    OnSignUpClick: () -> Unit
+fun StartScreen(
+    OnOpenAppClick: () -> Unit
 ) {
     Surface(
         modifier = Modifier.fillMaxWidth(),
@@ -46,14 +44,16 @@ fun WelcomeScreen(
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_launcher_background),
-                contentDescription = "user place holder",
+                contentDescription = "Start screen image",
                 modifier = Modifier
                     .height(150.dp)
                     .width(150.dp)
             )
+
             Spacer(modifier = Modifier.height(15.dp))
+
             Text(
-                text = "Welcome",
+                text = "Start Screen",
                 style = TextStyle(
                     fontSize = 28.sp,
                     color = Purple40,
@@ -66,38 +66,23 @@ fun WelcomeScreen(
                     fontSize = 16.sp,
                     textAlign = TextAlign.Center
                 ),
-                modifier = Modifier.padding(10.dp)
+                modifier = Modifier.padding(30.dp)
             )
+
             Spacer(modifier = Modifier.height(20.dp))
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 15.dp, end = 25.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
+            OutlinedButton(
+                onClick = { OnOpenAppClick() },
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2EDC83),),
+                border = BorderStroke(1.dp, color = Color.Black)
             ) {
-                OutlinedButton(
-                    onClick = { OnSignInClick() },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2EDC83),),
-                    border = BorderStroke(1.dp, color = Color.Black)
-                ) {
-                    Text(text = "Sign In")
-                }
-                OutlinedButton(
-                    onClick = { OnSignUpClick() },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2EDC83)),
-                    border = BorderStroke(width = 1.dp, color = Color.Black)
-                ) {
-                    Text(text = "Sign Up")
-                }
+                Text(text = "Open the app")
             }
         }
     }
 }
 @Preview
 @Composable
-fun PreViewWelcome(){
-    WelcomeScreen(OnSignInClick = { /*TODO*/ }) {
-
-    }
+fun PreviewStart(){
+    StartScreen(OnOpenAppClick = { /* TODO */})
 }

@@ -5,24 +5,27 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.simplemvvmexamplewithjetpackcompose.Destinations.WELCOME_ROUTE
-import com.example.simplemvvmexamplewithjetpackcompose.start.WelcomeRoute
+import com.example.simplemvvmexamplewithjetpackcompose.Destinations.MAIN_SCREEN_ROUTE
+import com.example.simplemvvmexamplewithjetpackcompose.Destinations.START_SCREEN_ROUTE
+import com.example.simplemvvmexamplewithjetpackcompose.main.MainScreenRoute
+import com.example.simplemvvmexamplewithjetpackcompose.start.StartScreenRoute
 
 object Destinations {
-    const val SIGN_IN = "signin"
-    const val SIGN_UP = "signup"
-    const val WELCOME_ROUTE = "welcome"
-    const val DASHBOARD_ROUTE = "dashboard/{email}"
+    const val START_SCREEN_ROUTE = "start"
+    const val MAIN_SCREEN_ROUTE = "main"
 }
 @Composable
 fun NavGraph(navController: NavHostController = rememberNavController()) {
-    NavHost(navController = navController, startDestination = WELCOME_ROUTE) {
-        composable(WELCOME_ROUTE) {
-            WelcomeRoute(OnSignInClicked = {
-                //navController.navigate(SIGN_IN)
-            }, OnSignUpClicked = {
-                //navController.navigate(SIGN_UP)
+    NavHost(navController = navController, startDestination = START_SCREEN_ROUTE) {
+        composable(START_SCREEN_ROUTE) {
+            StartScreenRoute(OnOpenAppClicked = {
+                navController.navigate(MAIN_SCREEN_ROUTE)
             })
+        }
+
+        composable(MAIN_SCREEN_ROUTE){
+            val message  = "message from start screen"
+            MainScreenRoute(messageFromStart = message!!)
         }
     }
 }
