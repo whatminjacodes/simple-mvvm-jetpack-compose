@@ -30,7 +30,7 @@ import com.example.simplemvvmexamplewithjetpackcompose.R
 import com.example.simplemvvmexamplewithjetpackcompose.ui.theme.Purple40
 
 @Composable
-fun WelcomeScreen(
+fun StartScreen(
     OnSignInClick: () -> Unit,
     OnSignUpClick: () -> Unit
 ) {
@@ -97,7 +97,7 @@ fun WelcomeScreen(
 @Preview
 @Composable
 fun PreViewWelcome(){
-    WelcomeScreen(OnSignInClick = { /*TODO*/ }) {
+    StartScreen(OnSignInClick = { /*TODO*/ }) {
 
     }
 }
