@@ -11,8 +11,8 @@ import com.example.simplemvvmexamplewithjetpackcompose.main.MainScreenRoute
 import com.example.simplemvvmexamplewithjetpackcompose.start.StartScreenRoute
 
 object Destinations {
-    const val START_SCREEN_ROUTE = "welcome"
-    const val MAIN_SCREEN_ROUTE = "first"
+    const val START_SCREEN_ROUTE = "start"
+    const val MAIN_SCREEN_ROUTE = "main"
 }
 @Composable
 fun NavGraph(navController: NavHostController = rememberNavController()) {
