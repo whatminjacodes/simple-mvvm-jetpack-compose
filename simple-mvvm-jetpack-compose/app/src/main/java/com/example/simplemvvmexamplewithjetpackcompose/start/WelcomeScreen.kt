@@ -45,7 +45,7 @@ fun WelcomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource(id = R.drawable.user_placeholder),
+                painter = painterResource(id = R.drawable.ic_launcher_background),
                 contentDescription = "user place holder",
                 modifier = Modifier
                     .height(150.dp)
