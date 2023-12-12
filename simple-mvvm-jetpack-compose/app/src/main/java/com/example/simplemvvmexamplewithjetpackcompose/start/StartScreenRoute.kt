@@ -4,8 +4,7 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun StartScreenRoute(
-    OnSignInClicked :() -> Unit,
-    OnSignUpClicked : () -> Unit
+    OnOpenAppClicked :() -> Unit
 ){
-    StartScreen(OnSignInClick = OnSignInClicked)
+    StartScreen(OnOpenAppClick = OnOpenAppClicked)
 }

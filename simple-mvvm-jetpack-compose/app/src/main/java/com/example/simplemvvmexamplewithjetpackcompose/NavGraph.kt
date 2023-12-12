@@ -18,9 +18,7 @@ object Destinations {
 fun NavGraph(navController: NavHostController = rememberNavController()) {
     NavHost(navController = navController, startDestination = START_SCREEN_ROUTE) {
         composable(START_SCREEN_ROUTE) {
-            StartScreenRoute(OnSignInClicked = {
-                navController.navigate(MAIN_SCREEN_ROUTE)
-            }, OnSignUpClicked = {
+            StartScreenRoute(OnOpenAppClicked = {
                 navController.navigate(MAIN_SCREEN_ROUTE)
             })
         }

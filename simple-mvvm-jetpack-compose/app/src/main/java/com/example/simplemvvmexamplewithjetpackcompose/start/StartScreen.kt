@@ -4,7 +4,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,7 +30,7 @@ import com.example.simplemvvmexamplewithjetpackcompose.ui.theme.Purple40
 
 @Composable
 fun StartScreen(
-    OnSignInClick: () -> Unit
+    OnOpenAppClick: () -> Unit
 ) {
     Surface(
         modifier = Modifier.fillMaxWidth(),
@@ -73,7 +72,7 @@ fun StartScreen(
             Spacer(modifier = Modifier.height(20.dp))
 
             OutlinedButton(
-                onClick = { OnSignInClick() },
+                onClick = { OnOpenAppClick() },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2EDC83),),
                 border = BorderStroke(1.dp, color = Color.Black)
             ) {
@@ -85,5 +84,5 @@ fun StartScreen(
 @Preview
 @Composable
 fun PreviewStart(){
-    StartScreen(OnSignInClick = { /* TODO */})
+    StartScreen(OnOpenAppClick = { /* TODO */})
 }
