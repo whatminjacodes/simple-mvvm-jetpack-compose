@@ -5,29 +5,29 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.simplemvvmexamplewithjetpackcompose.Destinations.DASHBOARD_ROUTE
+import com.example.simplemvvmexamplewithjetpackcompose.Destinations.MAIN_SCREEN_ROUTE
 import com.example.simplemvvmexamplewithjetpackcompose.Destinations.WELCOME_ROUTE
-import com.example.simplemvvmexamplewithjetpackcompose.main.DashBoardRoute
+import com.example.simplemvvmexamplewithjetpackcompose.main.MainScreenRoute
 import com.example.simplemvvmexamplewithjetpackcompose.start.WelcomeRoute
 
 object Destinations {
     const val WELCOME_ROUTE = "welcome"
-    const val DASHBOARD_ROUTE = "dashboard/{email}"
+    const val MAIN_SCREEN_ROUTE = "first"
 }
 @Composable
 fun NavGraph(navController: NavHostController = rememberNavController()) {
     NavHost(navController = navController, startDestination = WELCOME_ROUTE) {
         composable(WELCOME_ROUTE) {
             WelcomeRoute(OnSignInClicked = {
-                navController.navigate(DASHBOARD_ROUTE)
+                navController.navigate(MAIN_SCREEN_ROUTE)
             }, OnSignUpClicked = {
-                navController.navigate(DASHBOARD_ROUTE)
+                navController.navigate(MAIN_SCREEN_ROUTE)
             })
         }
 
-        composable(DASHBOARD_ROUTE){
+        composable(MAIN_SCREEN_ROUTE){
             val message  = "message from start screen"
-            DashBoardRoute(messageFromStart = message!!)
+            MainScreenRoute(messageFromStart = message!!)
         }
     }
 }
