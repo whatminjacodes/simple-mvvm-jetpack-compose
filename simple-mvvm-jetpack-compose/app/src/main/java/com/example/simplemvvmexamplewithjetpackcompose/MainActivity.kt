@@ -18,12 +18,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             SimpleMVVMExampleWithJetpackComposeTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
+                NavGraph()
+                /*Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting("Android")
-                }
+                }*/
             }
         }
     }
