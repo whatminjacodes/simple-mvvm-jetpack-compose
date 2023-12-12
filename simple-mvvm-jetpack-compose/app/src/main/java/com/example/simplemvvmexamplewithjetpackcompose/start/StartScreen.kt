@@ -31,8 +31,7 @@ import com.example.simplemvvmexamplewithjetpackcompose.ui.theme.Purple40
 
 @Composable
 fun StartScreen(
-    OnSignInClick: () -> Unit,
-    OnSignUpClick: () -> Unit
+    OnSignInClick: () -> Unit
 ) {
     Surface(
         modifier = Modifier.fillMaxWidth(),
@@ -46,14 +45,16 @@ fun StartScreen(
         ) {
             Image(
                 painter = painterResource(id = R.drawable.ic_launcher_background),
-                contentDescription = "user place holder",
+                contentDescription = "Start screen image",
                 modifier = Modifier
                     .height(150.dp)
                     .width(150.dp)
             )
+
             Spacer(modifier = Modifier.height(15.dp))
+
             Text(
-                text = "Welcome",
+                text = "Start Screen",
                 style = TextStyle(
                     fontSize = 28.sp,
                     color = Purple40,
@@ -66,38 +67,23 @@ fun StartScreen(
                     fontSize = 16.sp,
                     textAlign = TextAlign.Center
                 ),
-                modifier = Modifier.padding(10.dp)
+                modifier = Modifier.padding(30.dp)
             )
+
             Spacer(modifier = Modifier.height(20.dp))
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 15.dp, end = 25.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
+            OutlinedButton(
+                onClick = { OnSignInClick() },
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2EDC83),),
+                border = BorderStroke(1.dp, color = Color.Black)
             ) {
-                OutlinedButton(
-                    onClick = { OnSignInClick() },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2EDC83),),
-                    border = BorderStroke(1.dp, color = Color.Black)
-                ) {
-                    Text(text = "Sign In")
-                }
-                OutlinedButton(
-                    onClick = { OnSignUpClick() },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2EDC83)),
-                    border = BorderStroke(width = 1.dp, color = Color.Black)
-                ) {
-                    Text(text = "Sign Up")
-                }
+                Text(text = "Open the app")
             }
         }
     }
 }
 @Preview
 @Composable
-fun PreViewWelcome(){
-    StartScreen(OnSignInClick = { /*TODO*/ }) {
-
-    }
+fun PreviewStart(){
+    StartScreen(OnSignInClick = { /* TODO */})
 }

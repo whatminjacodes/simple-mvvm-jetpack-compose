@@ -7,5 +7,5 @@ fun StartScreenRoute(
     OnSignInClicked :() -> Unit,
     OnSignUpClicked : () -> Unit
 ){
-    StartScreen(OnSignInClick = OnSignInClicked, OnSignUpClick = OnSignUpClicked)
+    StartScreen(OnSignInClick = OnSignInClicked)
 }
